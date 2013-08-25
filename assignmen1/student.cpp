@@ -32,7 +32,7 @@ while (checker == -1)
 	cin.getline(name , 100 ) ;
 	checker = name_adjuster(name);
 }
-system("CLS");
+//system("CLS");
 cout << name << endl;
 
 
@@ -41,16 +41,12 @@ cout << name << endl;
 }
 
 int name_adjuster(char obj[]){
-	char a ;
-	int elements ;
-	elements = sizeof(obj) / sizeof(a) ;
 	//space removal//
 	bool check = false;
+	bool check_S = false ;
 	int j = 0 ;
-	for (int i = 0; i < elements; i++)
-	{
-		//loop to check violating characters before any name 
-		j = i ;
+	char abr[100] ;
+		//Phase 1---------------loop to check violating characters before any name 
 		while ( (obj[j] < 65 || obj[j] > 90) &&  (obj[j] < 97 || obj[j] > 122) )
 		{
 			j++ ;
@@ -60,30 +56,65 @@ int name_adjuster(char obj[]){
 
 		if (check)
 		{
-			int ins = i ;
-			check = false ; 
-			while(obj[j] != '\0'){
-				obj[ins] = obj[j];
+			int ins = 0;
+			while (obj[j] != 0)
+			{
+
+				abr[ins] = obj[j] ;
 				j++ ;
-				ins++ ;
+				ins ++ ;
 			}
-			obj[j] = '\0' ;
-		}
-		/*if (obj[i] == ' ')
+			abr[ins] = 0 ;
+			strcpy(obj , abr) ;
+			check = false ;
+}
+		for (int i = 0; obj[i] != 0; i++)
 		{
-			
-			while (obj[j] <)
+			if (obj[i]== ' ' && obj[i+1] == ' ')
 			{
+					j = i ;
+				while (obj[j] != 0)
+				{
 
+					obj[j] = obj[j+1] ;
+					j++ ;
+				}	
+				
 			}
-			while (j < elements)
-			{
-				obj[j] = obj[j+1] ;
-			}
-		}*/
-	}
+		}
 
-
-
+		//Phase 1 cleared
 	return 0 ;
 }
+
+//void exception(char obj[]){
+//
+//	bool check = false;
+//	int j = 0 ;
+//	char abr[100] ;
+//		//Phase 1---------------loop to check violating characters before any name 
+//		while ( (obj[j] < 65 || obj[j] > 90) &&  (obj[j] < 97 || obj[j] > 122) )
+//		{
+//			j++ ;
+//			check = true ;
+//			
+//		}
+//		if (check)
+//		{
+//			int ins = 0;
+//			while (obj[j] != 0)
+//			{
+//
+//				abr[ins] = obj[j] ;
+//				j++ ;
+//				ins ++ ;
+//			}
+//			abr[ins] = 0 ;
+//			strcpy(obj , abr) ;
+//			check = false ;
+//}
+//
+//}
+
+
+
