@@ -116,5 +116,32 @@ int name_adjuster(char obj[]){
 //
 //}
 
+void sort(student *obj[], int size){
+	
+	int *ptr = new int [size];
+	ptr = 0 ;
 
+	for (int i = 0; i < size; i++)
+	{
+		int j = 0 ;
+		while (obj[i]->name[j] != 0)
+		{
+			if (obj[i]->name[j] < 91 )
+			{
+				ptr[i] += obj[i]->name[j] ;
+			}
+			else{
+			ptr[i] += obj[i]->name[j] - 32;
+			}
+			j++ ;
+		}
+	}
+
+
+
+
+
+
+
+}
 
