@@ -8,12 +8,7 @@ class student
 private:
 	long int id ;
 	char *name ;
-	class position
 
-	{
-	public:
-		int post ;
-	};
 
 public:
 	student();
