@@ -16,8 +16,6 @@ int main(void)
 	}
 	sort(abr , 3) ;
 
-	//cout << cmp("abeers" , "hunnybehan") << endl ;
-
 
 
 }
