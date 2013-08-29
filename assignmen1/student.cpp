@@ -107,14 +107,14 @@ void sort(student *obj[],const int size){
 	ptr[1] = 0 ;
 	for (int i = 0; i < size; i++)
 	{
-		ptr[i] = 0 ;
+		ptr[i] = i ;
 		post[i] = i ;
 	}
 	system("cls") ;
  
 	int i, j, flag = 1;    // set flag to 1 to start first pass
       int temp;             // holding variable
-      //int numLength = num.length( ); 
+      //loop for sorting by name 
 	  for(i = 1; (i < size) /*&& flag*/; i++)
      {
           flag = 0;
@@ -130,6 +130,25 @@ void sort(student *obj[],const int size){
                }
           }
      }
+	  //loop for dorting by id
+	 for(i = 1; (i < size) /*&& flag*/; i++)
+     {
+          flag = 0;
+		  for (j=0; j < (size); j++)
+         {
+			 if (obj[i]->id > obj[j]->id)      // ascending order simply changes to <
+              { 
+					int temp ;
+					temp = ptr[i];
+					ptr[i] = ptr[j] ;
+					ptr[j] = temp ;
+					flag = 1;               // indicates that a swap occurred.
+               }
+          }
+     }
+
+
+
 	  for (int i = 0; i < size ; i++)
 	  {
 		  //cout << post[i] << endl ;
